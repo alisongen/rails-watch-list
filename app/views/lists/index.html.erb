@@ -1,4 +1,25 @@
-<% @lists.each do |list| %>
-  <%= link_to "#{list.name}", "/lists/#{list.id}"%>
-<% end %>
-<%= link_to "Add a new list", "/lists/new"%>
+<!-- <h1>Movie lists</h1>
+<div class="lists-container">
+  <% @lists.each do |list| %>
+    <div class="list-card">
+      <%= list.name %>
+      <%= link_to "See more", "/lists/#{list.id}"%>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Add a new list", "/lists/new"%> -->
+
+
+<h1>Movie lists</h1>
+<div class="lists-container">
+  <% @lists.each do |list| %>
+    <div class="list-card">
+      <h2>❤️ <%= list.name %></h2>
+      <%= image_tag "barbie.png", class: "main-image", alt: "Main Movie" %>
+      <br>
+      <%= link_to "14 movies →", "/lists/#{list.id}"%>
+    </div>
+  <% end %>
+</div>
+<%= link_to "Add a new list", "/lists/new", class: "add-list-button" %>

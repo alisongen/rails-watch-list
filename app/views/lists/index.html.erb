@@ -10,16 +10,24 @@
 
 <%= link_to "Add a new list", "/lists/new"%> -->
 
+<div class="header">
+  <%= image_tag "watchlist.svg", alt: "WatchList Logo" %>
+  <%= link_to "Add a new list", "/lists/new", class: "button" %>
+</div>
 
-<h1>Movie lists</h1>
 <div class="lists-container">
   <% @lists.each do |list| %>
     <div class="list-card">
-      <h2>❤️ <%= list.name %></h2>
-      <%= image_tag "barbie.png", class: "main-image", alt: "Main Movie" %>
-      <br>
-      <%= link_to "14 movies →", "/lists/#{list.id}"%>
+      <div class="list-images">
+        <%= image_tag "barbie.png", class: "list-images-image image-primary" %>
+        <%= image_tag "viceversa.jpg", class: "list-images-image image-secondary" %>
+        <%= image_tag "amourouf.jpg", class: "list-images-image image-tertiary" %>
+      </div>
+      <div class="list-infos">
+        <h2><%= list.name %></h2>
+        <p><%= list.movies_count %> movies</p>
+      </div>
+      <%= link_to "See the list →", "/lists/#{list.id}"%>
     </div>
   <% end %>
 </div>
-<%= link_to "Add a new list", "/lists/new", class: "add-list-button" %>
